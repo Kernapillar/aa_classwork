@@ -22,8 +22,13 @@ class Board
     end
     
     def place_mark(position, mark)
-        if !valid?(position) || !empty?(position)
-            raise RuntimeError.new "Unable to mark #{position}"
+        begin
+            if !valid?(position) || !empty?(position)
+                raise RuntimeError.new "Unable to mark #{position}"
+            end
+        rescue 
+            puts "please try again"
+            retry
         end
         self[position] = mark
     end
@@ -108,15 +113,3 @@ class Board
     end
 
 end
-
-b = Board.new
-b.place_mark([0, 0], :X)
-b.place_mark([0, 1], :X)
-b.place_mark([0, 2], :X)
-b.place_mark([1, 0], :X)
-b.place_mark([1, 1], :X)
-b.place_mark([1, 2], :X)
-b.place_mark([2, 1], :X)
-b.place_mark([2, 2], :X)
-b.print
-p b.empty_positions?
