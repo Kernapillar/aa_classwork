@@ -36,9 +36,9 @@ class Board
 
     # Win State Checks
 
-    def win_row?
+    def win_row?(mark)
         @grid.each do |row|
-            check = row[0]
+            check = mark
             count = 0
             row.each do |ele|
                 if 
@@ -51,14 +51,13 @@ class Board
         false
     end
 
-    def win_col?
-        j = 0
+    def win_col?(mark)
         @grid[0].each.with_index do |ele, idx|
-            check = ele
+            check = mark
             count = 0
             i = 0
             while i < @grid.length
-                return false if @grid[i][idx] != "_"
+                return false if @grid[i][idx] == "_"
                 if @grid[i][idx] == check 
                     count += 1
                 end
@@ -69,21 +68,21 @@ class Board
         false
     end
 
-    def win_diagonal?
+    def win_diagonal?(mark)
         
         opposite = []
         @grid.each { |row| opposite.unshift(row)}
-        return true if self.diag_check == true || self.diag_check(opposite)
+        return true if self.diag_check(mark) == true || self.diag_check(mark, opposite)
         false
     end
 
-    def diag_check(b=@grid)
+    def diag_check(mark, b=@grid)
         i = 0
         j = 0
         if b[i][j] == "_"
             return false
         end
-        check = b[0][0]
+        check = mark
         count = 0
         while i < b.length
             return false if b[i][j] == "_"
@@ -92,15 +91,32 @@ class Board
             j += 1
         end
         return true if count == b.length
+        false
     end
-    false
+
+    def win?(mark)
+        if win_col?(mark) || win_row?(mark) || win_diagonal?(mark)
+            return true
+        end
+        false
+    end
+
+    def empty_positions?
+        flat = @grid.flatten
+        flat.each {|ele| return true if ele == "_"}
+        false
+    end
+
 end
 
 b = Board.new
-b.place_mark([2, 0], :X)
-b.place_mark([1, 1], :X)
+b.place_mark([0, 0], :X)
+b.place_mark([0, 1], :X)
 b.place_mark([0, 2], :X)
+b.place_mark([1, 0], :X)
+b.place_mark([1, 1], :X)
+b.place_mark([1, 2], :X)
+b.place_mark([2, 1], :X)
+b.place_mark([2, 2], :X)
 b.print
-p b.diag_check
-p b.win_diagonal?
-b.print
+p b.empty_positions?
