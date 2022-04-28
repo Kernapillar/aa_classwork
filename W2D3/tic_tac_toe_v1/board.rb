@@ -83,17 +83,14 @@ class Board
 
     def diag_check(mark, b=@grid)
         i = 0
-        j = 0
-        if b[i][j] == "_"
+        if b[i][i] == "_"
             return false
         end
         check = mark
         count = 0
         while i < b.length
-            return false if b[i][j] == "_"
-            count += 1 if b[i][j] == check 
-            i += 1
-            j += 1
+            return false if b[i][i] == "_"
+            count += 1 if b[i][i] == check 
         end
         return true if count == b.length
         false
@@ -113,3 +110,26 @@ class Board
     end
 
 end
+
+
+# def diagonal_win?(mark)
+#     reverse_grid = @grid.reverse # creating a reversed version of the grid:
+
+#     #  [[_ _ X],    ->  [[X _ _],
+#     #   [_ X _],    ->   [_ X _],
+#     #   [X _ _]]    ->   [_ _ X]]
+
+
+#     if diagonal_helper(mark) || diagonal_helper(mark, reverse_grid)
+#         return true
+#     else
+#         return false
+#     end
+
+# end
+
+# def diagonal_helper(mark, grid=@grid)
+# # return true if the top left -> bottom rightupd diagonal 
+# # is a win for mark on the grid. 
+# # optional grid variable, defaults to the current instance grid
+# end
