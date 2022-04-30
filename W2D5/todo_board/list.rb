@@ -89,7 +89,6 @@ class List
         self.print_full_item[0]
     end
 
-
     def sort_by_date!
         @items.sort_by! {|item| item.deadline}
     end
