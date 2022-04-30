@@ -42,25 +42,25 @@ class List
     end
 
     def print
-        puts "------------------------------------------"
-        puts "#{@label.center(42)}"
-        puts "------------------------------------------"
-        puts "Index | Item                 | Deadline   "
-        puts "------------------------------------------"
+        puts "-------------------------------------------------"
+        puts "#{@label.center(49)}"
+        puts "-------------------------------------------------"
+        puts "Index | Item                 | Deadline   | Done "
+        puts "-------------------------------------------------"
         @items.each do |item|
-            puts "#{@items.index(item).to_s.ljust(6)}| #{item.title.ljust(21)}| #{item.deadline}"
+            puts "#{@items.index(item).to_s.ljust(6)}| #{item.title.ljust(21)}| #{item.deadline}  | [#{item.done}]"
         end
-        puts "------------------------------------------"
+        puts "-------------------------------------------------"
     end
 
     def print_full_item(index)
         return false unless valid_index?(index)
         item = self[index]
 
-        puts "------------------------------------------"
+        puts "-------------------------------------------------"
         puts "#{item.title}".ljust(30) + "#{item.deadline}".rjust(12)
         puts "#{item.description}"
-        puts "------------------------------------------"
+        puts "-------------------------------------------------"
     end
 
     def up(index, amount=1)
@@ -92,6 +92,10 @@ class List
 
     def sort_by_date!
         @items.sort_by! {|item| item.deadline}
+    end
+
+    def toggle_item(index)
+        @items[index].toggle
     end
 
 end

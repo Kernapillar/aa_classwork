@@ -14,7 +14,7 @@ class Item
         true
     end
 
-    def initialize(title, deadline, description)
+    def initialize(title, deadline, description, done=false)
         @title = title
         if self.class.valid_date?(deadline)
             @deadline = deadline
@@ -22,6 +22,7 @@ class Item
             raise "invalid deadline date"
         end
         @description = description
+        @done = done
     end
 
     def deadline
@@ -33,6 +34,14 @@ class Item
             @deadline = new_deadline
         else
             raise "invalid deadline date"
+        end
+    end
+
+    def toggle
+        if @done == true
+            @done = false
+        else
+            @done = true
         end
     end
 

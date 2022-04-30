@@ -45,6 +45,9 @@ class TodoBoard
             elsif command[0] == "print"
                 @list.print
 
+            elsif command[0] == "toggle"
+                @list.toggle_item(command[1].to_i)
+
             elsif command[0] == "quit" || command[0] == "exit"
                 puts "quitting"
                 return false
