@@ -200,11 +200,12 @@ def multiply(a, b)
     return 0 if b == 0
 
     if b < 0
-        return -(a - multiply(a, b + 1))
+        return -(a + multiply(a, -(b + 1)))
     end
     a + (multiply(a, b - 1))
 
 end
+
 
 # p multiply(3, 5)        # => 15
 # p multiply(5, 3)        # => 15
@@ -223,20 +224,35 @@ def lucas_sequence(num)
     elsif num == 2 
         return [2, 1]
     end
-    sequence = []
-    while sequence.length < num
-        sequence << lucas_sequence(num -1)
-        sequence << sequence[-1] + sequence[-2]
-    end
-    sequence
+    sequence = lucas_sequence(num - 1)
+    next_num = sequence[-1] + sequence[-2]
+    sequence << next_num
 end
 
 
-# Examples
-p lucas_sequence(0)   # => []
-p lucas_sequence(1)   # => [2]    
-p lucas_sequence(2)   # => [2, 1]
-p lucas_sequence(3)   # => [2, 1, 3]
-p lucas_sequence(6)   # => [2, 1, 3, 4, 7, 11]
-p lucas_sequence(8)   # => [2, 1, 3, 4, 7, 11, 18, 29]
+# # Examples
+# p lucas_sequence(0)   # => []
+# p lucas_sequence(1)   # => [2]    
+# p lucas_sequence(2)   # => [2, 1]
+# p lucas_sequence(3)   # => [2, 1, 3]
+# p lucas_sequence(6)   # => [2, 1, 3, 4, 7, 11]
+# p lucas_sequence(8)   # => [2, 1, 3, 4, 7, 11, 18, 29]
 
+def prime_factorization(num)
+    (2...num).each do |factor|
+        if num % factor == 0
+            other = num / factor
+            return [prime_factorization(factor), prime_factorization(other)]
+        end
+    end
+    [num]
+end
+
+
+p prime_factorization(12)     # => [2, 2, 3]
+p prime_factorization(24)     # => [2, 2, 2, 3]
+p prime_factorization(25)     # => [5, 5]
+p prime_factorization(60)     # => [2, 2, 3, 5]
+p prime_factorization(7)      # => [7]
+p prime_factorization(11)     # => [11]
+p prime_factorization(2017)   # => [2017]
