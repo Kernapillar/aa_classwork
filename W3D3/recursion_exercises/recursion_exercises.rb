@@ -176,6 +176,7 @@ def permutations(arr)
     end
     perm_bag
 end
+
 puts "------------------------------"
 p [1].permutation.to_a
 puts "------------------------------"
