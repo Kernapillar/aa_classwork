@@ -75,6 +75,7 @@ describe "Deck" do
     end
 
 
+    
     describe "#draw" do
         it "draws a card from the deck" do 
             drawn = deck.draw
