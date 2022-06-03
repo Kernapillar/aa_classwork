@@ -1,0 +1,56 @@
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: auto;
+}
+
+.main-nav li {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  // text-transform: ;
+}
+
+.fa-cog {
+  font-size: 18px;
+}
+
+.left-nav > ul,
+.right-nav > ul {
+  display: flex;
+  align-items: vertical;
+}
+.left-nav {
+
+  > ul {
+    > li {
+      padding-right: 5px;
+    }
+  }
+
+  span {
+    margin-left: 5px;
+  }
+}
+
+.right-nav  {
+
+  > ul {
+
+    > li {
+      padding-right: 5px;
+    }
+
+    > li:last-of-type {
+  
+    }
+  }
+  
+  i {
+
+  }
+}
+
+.left-nav > ul > li:hover,
+.right-nav > ul > li:last-of-type:hover {
+
+}

@@ -1,0 +1,109 @@
+/* PHASE 1: Header */
+
+body {
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background-color: white;
+
+
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    color: white;
+}
+
+.header a {
+    display: block;
+    padding: 10px 20px;
+}
+
+
+.header-list > li {
+    display: inline-block;
+}
+
+.header-logo {
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+} 
+
+li {
+    border-left: 1px solid white;
+   
+}
+
+
+ul:last-child{
+    border-right: 1px solid white;
+}
+
+.header-logo:hover {
+    background-color: black;
+}
+
+.header-list {
+    display: flex;
+}
+
+.header-list li:hover {
+    background-color: black;
+} 
+
+/* 
+ 
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  background: #eee;
+}
+
+.header {
+  background: rgb(226, 24, 24);
+  color: rgb(6, 5, 5);
+  border-bottom: 1px solid rgb(62, 25, 98);
+}
+
+.header a {
+  display: block;
+  padding: 10px 20px;
+}
+
+.header-nav {
+  margin: 0 auto;
+  width: 900px;
+  border-left: 1px solid rgb(18, 157, 53);
+  border-right: 1px solid #ccc;
+}
+
+.header-logo {
+  float: left;
+  border-right: 1px solid #ccc;
+  font-weight: 700;
+}
+
+.header-logo:hover {
+  background: #000;
+}
+
+.header-list {
+  float: right;
+}
+
+.header-list > li {
+  float: left;
+  border-left: 1px solid #ccc;
+}
+
+.header-list > li:hover {
+  background: #000;
+}  */
