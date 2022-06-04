@@ -1,0 +1,16 @@
+<h1>Hello, <%= current_user.username %>, Fuck You</h1>
+
+
+<H3>Also, Fuck these guys too:</H3>
+
+<ul>
+<% @users.each do |fucker|%>
+    <% if fucker != current_user %>
+        <li> <%= fucker.username %></li>
+        <% else %>
+        <li>Fuck you again, <%= fucker.username %></li>
+    <% end %>
+    <%=  %>
+<% end %>
+</ul>
+
