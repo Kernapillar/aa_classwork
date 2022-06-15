@@ -1,0 +1,40 @@
+ul {
+    list-style: none;
+}
+
+ul {
+    display: flex;
+    align-self: center;
+    flex-wrap: wrap;
+    width: 600px;
+}
+
+ul li {
+    width: 196px;
+    height: 196px;
+    background-color: blueviolet;
+    border: 2px solid black;
+}
+
+ul .selectedX{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    color: red;
+    font-size: 250px;
+    
+}
+
+ul .selectedO{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    color:rgb(0, 161, 206);
+    font-size: 250px;
+}
+
+ul li:hover {
+    background-color: yellow;
+}
