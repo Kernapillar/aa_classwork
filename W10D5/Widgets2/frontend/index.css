@@ -1,0 +1,16 @@
+@import url(reset.css);
+body {
+    background: linear-gradient(to right, silver, goldenrod);
+}
+h1 {
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Rubik Moonrocks', cursive;
+}
+
+#clock {
+    background: linear-gradient(to right, goldenrod, silver);
+    border: 2px solid purple;
+    display: flex;
+    justify-content: space-around;
+}
