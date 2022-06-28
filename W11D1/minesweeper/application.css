@@ -1,0 +1,70 @@
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 900px;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 600px;
+}
+
+.gridRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 100%
+}
+
+
+.hide {
+    display: none;
+}
+
+.show {
+    z-index: 998;
+    position: absolute;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 255, 0.168);
+}
+
+.modal-content {
+    height: 150px;
+    width: 200px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+}
+
+
+.explored, .flagged, .bombed {
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    width: 60px;
+    align-items: center;
+    background-color: rgb(240, 232, 220);
+}
+
+
+.unexplored {
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    width: 60px;
+    align-items: center;
+    background-color: blanchedalmond;
+}
