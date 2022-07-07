@@ -1,3 +1,1 @@
-{
-    "hello": 'hello'
-}
+json.extract! @user, :username, :id

@@ -369,3 +369,529 @@ SyntaxError - syntax error, unexpected tINTEGER, expecting keyword_do or '{' or 
 ...                            ^~~:
   app/controllers/api/users_controller.rb:9:in `'
 
+Started POST "/api/users/" for ::1 at 2022-07-07 09:16:06 -0700
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexkern/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8/lib/active_record/log_subscriber.rb:98
+
+SyntaxError - syntax error, unexpected tINTEGER, expecting keyword_do or '{' or '('
+...rrors.full_messages, status 401
+...                            ^~~:
+  app/controllers/api/users_controller.rb:9:in `'
+
+Started POST "/api/users/" for ::1 at 2022-07-07 09:16:37 -0700
+
+SyntaxError - syntax error, unexpected tINTEGER, expecting keyword_do or '{' or '('
+...rrors.full_messages, status 401
+...                            ^~~:
+  app/controllers/api/users_controller.rb:9:in `'
+
+Started POST "/api/users/" for ::1 at 2022-07-07 09:18:53 -0700
+
+SyntaxError - syntax error, unexpected tINTEGER, expecting keyword_do or '{' or '('
+...rrors.full_messages, status 401
+...                            ^~~:
+  app/controllers/api/users_controller.rb:9:in `'
+
+Started POST "/api/users/" for ::1 at 2022-07-07 09:19:53 -0700
+
+SyntaxError - syntax error, unexpected tINTEGER, expecting keyword_do or '{' or '('
+...rrors.full_messages, status 401
+...                            ^~~:
+  app/controllers/api/users_controller.rb:9:in `'
+
+Started POST "/api/users/?user[username]=alexander123123&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:22:32 -0700
+
+SyntaxError - syntax error, unexpected tINTEGER, expecting keyword_do or '{' or '('
+...rrors.full_messages, status 401
+...                            ^~~:
+  app/controllers/api/users_controller.rb:9:in `'
+
+Started POST "/api/users/?user[username]=%22alexander123123%22&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:22:45 -0700
+
+SyntaxError - syntax error, unexpected tINTEGER, expecting keyword_do or '{' or '('
+...rrors.full_messages, status 401
+...                            ^~~:
+  app/controllers/api/users_controller.rb:9:in `'
+
+Started POST "/api/users/?user[username]=%22alexander123123%22&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:23:03 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"\"alexander123123\"", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/api/users/?user[username]=%22alexander123123%22&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:29:16 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"\"alexander123123\"", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - Unknown validator: 'LenghValidator':
+  app/models/user.rb:9:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  app/controllers/api/users_controller.rb:4:in `create'
+
+Started POST "/api/users/?user[username]=%22alexander123123%22&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:29:42 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"\"alexander123123\"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (7.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "\"alexander123123\""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "jqy_1D_wnzhxzOJ8j8It1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "session_token", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "\"alexander123123\""], ["session_token", "jqy_1D_wnzhxzOJ8j8It1Q"], ["password_digest", "$2a$12$18Hr3laLxm8OCjPAAlEEGeZJdT0rnhlXTjLAj2I23GyMmde/9hqkW"], ["created_at", "2022-07-07 16:29:43.009108"], ["updated_at", "2022-07-07 16:29:43.009108"]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (11.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (0.7ms)
+Completed 500 Internal Server Error in 814ms (ActiveRecord: 71.1ms)
+
+
+
+SyntaxError - syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...elf); json.partial! 'user' user: @user
+...                           ^~~~:
+  app/views/api/users/show.json.jbuilder:1:in `'
+  app/controllers/api/users_controller.rb:7:in `create'
+
+Started POST "/api/users/?user[username]=%22alexander123123%22&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:31:52 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"\"alexander123123\"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (7.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "\"alexander123123\""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (10.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VzxNyI4sgB1kWgyW8GEzQg"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (10.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 401 Unauthorized in 760ms (Views: 0.5ms | ActiveRecord: 27.9ms)
+
+
+Started POST "/api/users/?user[username]=%22alexander1231223%22&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:31:59 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"\"alexander1231223\"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "\"alexander1231223\""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "TUg_YdT58pdAwCY0jqDPTQ"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Create (2.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "session_token", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "\"alexander1231223\""], ["session_token", "TUg_YdT58pdAwCY0jqDPTQ"], ["password_digest", "$2a$12$zkPP2WfeswhTFDj.BCxDjOcsPN6HdChKVXGj.wn5RSKmcMalYESQ2"], ["created_at", "2022-07-07 16:31:59.751925"], ["updated_at", "2022-07-07 16:31:59.751925"]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (21.5ms)
+  Rendered api/users/show.json.jbuilder (23.0ms)
+Completed 500 Internal Server Error in 746ms (ActiveRecord: 4.3ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder___775511766417680173_2551850700'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder___729142690477654120_2551872400'
+  app/controllers/api/users_controller.rb:7:in `create'
+
+Started POST "/api/users/?user[username]=%22alexander1231223%22&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:32:07 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"\"alexander1231223\"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "\"alexander1231223\""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "k4rPH30mBxlBcsd-OZ7ydg"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 401 Unauthorized in 714ms (Views: 0.2ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/api/users/?user[username]=alexander1231223&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:32:17 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"alexander1231223", "password"=>"[FILTERED]"}}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "alexander1231223"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "tEgAFFYNLzrndPmQxPUWnw"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "session_token", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "alexander1231223"], ["session_token", "tEgAFFYNLzrndPmQxPUWnw"], ["password_digest", "$2a$12$BT45yvJYZhbLafu8kEhvTuzIdgSQg/l09xScQAeeVMOuGVgTOsZPW"], ["created_at", "2022-07-07 16:32:17.881029"], ["updated_at", "2022-07-07 16:32:17.881029"]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (3.2ms)
+  Rendered api/users/show.json.jbuilder (4.3ms)
+Completed 500 Internal Server Error in 730ms (ActiveRecord: 2.2ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder___775511766417680173_2553231460'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder___729142690477654120_2553261120'
+  app/controllers/api/users_controller.rb:7:in `create'
+
+Started POST "/api/users/?user[username]=alexander1231223&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:33:07 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"alexander1231223", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "alexander1231223"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "0DPUdeTmNXEy_GPXmblb-w"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 401 Unauthorized in 733ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api/users/?user[username]=alexander12312&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:33:13 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"alexander12312", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "alexander12312"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "d5wyY6lPOC3hxQH5Zc_PDA"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "session_token", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "alexander12312"], ["session_token", "d5wyY6lPOC3hxQH5Zc_PDA"], ["password_digest", "$2a$12$gLWlj4S4MJTiFE1IBxgHCu8MsBWvdReTvjsQE780L8dI1RY9w6I7u"], ["created_at", "2022-07-07 16:33:13.938167"], ["updated_at", "2022-07-07 16:33:13.938167"]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (8.3ms)
+  Rendered api/users/show.json.jbuilder (9.5ms)
+Completed 500 Internal Server Error in 738ms (ActiveRecord: 5.6ms)
+
+
+
+NoMethodError - undefined method `email' for #<User:0x0000000127478e98>:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder___775511766417680173_2552835520'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder___729142690477654120_2552867860'
+  app/controllers/api/users_controller.rb:7:in `create'
+
+Started POST "/api/users/?user[username]=alexander12312&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:33:25 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"alexander12312", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "alexander12312"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "3Ahlyk2SvF8dMnjXP1V5IQ"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (3.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 401 Unauthorized in 726ms (Views: 0.5ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/api/users/?user[username]=alexander1231&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:33:30 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"alexander1231", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "alexander1231"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8mNHqgajFvpOA4ayqqrL8g"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "session_token", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "alexander1231"], ["session_token", "8mNHqgajFvpOA4ayqqrL8g"], ["password_digest", "$2a$12$bN56GmaJf08JownHLYBCrOsXfhP4LnCrXwPljpg3FDtEcU5mghmf6"], ["created_at", "2022-07-07 16:33:31.392089"], ["updated_at", "2022-07-07 16:33:31.392089"]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (1.9ms)
+Completed 200 OK in 723ms (Views: 7.4ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/api/session/?username=alexander1231&password=[FILTERED]" for ::1 at 2022-07-07 09:36:59 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"username"=>"alexander1231", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/api/sessions_controller.rb:3:in `create'
+
+Started POST "/api/session/?user[username]=alexander1231&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:37:34 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"alexander1231", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (11.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (alexander1231) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:14
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 11.0ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column "alexander1231" does not exist
+LINE 1: SELECT  "users".* FROM "users" WHERE (alexander1231) LIMIT $...
+                                              ^
+: SELECT  "users".* FROM "users" WHERE (alexander1231) LIMIT $1:
+  app/models/user.rb:14:in `find_by_credentials'
+  app/controllers/api/sessions_controller.rb:3:in `create'
+
+Started POST "/api/users/?user[username]=alexalex&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:38:23 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"alexalex", "password"=>"[FILTERED]"}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "alexalex"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pGLBLYR6VXu88QQYnyOmYA"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "session_token", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "alexalex"], ["session_token", "pGLBLYR6VXu88QQYnyOmYA"], ["password_digest", "$2a$12$cSz2tJvpW1Jk1A5KalrdsuIZJylSMULSIuJuyWVQAiSvXMZSXBEaS"], ["created_at", "2022-07-07 16:38:24.486226"], ["updated_at", "2022-07-07 16:38:24.486226"]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (1.7ms)
+Completed 200 OK in 745ms (Views: 9.3ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/api/session?user[username]=alexalex&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:39:05 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"alexalex", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (alexalex) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:14
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 6.7ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column "alexalex" does not exist
+LINE 1: SELECT  "users".* FROM "users" WHERE (alexalex) LIMIT $1
+                                              ^
+: SELECT  "users".* FROM "users" WHERE (alexalex) LIMIT $1:
+  app/models/user.rb:14:in `find_by_credentials'
+  app/controllers/api/sessions_controller.rb:3:in `create'
+
+Started POST "/api/session?user[username]=alexalex&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:48:12 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"alexalex", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "alexalex"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:14
+Completed 500 Internal Server Error in 762ms (ActiveRecord: 34.6ms)
+
+
+
+ActionView::MissingTemplate - Missing template api/sessions/show, application/show with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/alexkern/Desktop/app_academy/aa_classwork/W12D3/bench_BnB/app/views":
+  app/controllers/api/sessions_controller.rb:8:in `create'
+
+Started POST "/api/session?user[username]=alexalex&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:50:40 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"alexalex", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "alexalex"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:14
+Completed 500 Internal Server Error in 711ms (ActiveRecord: 0.5ms)
+
+
+
+ActionView::MissingTemplate - Missing template api/sessions/show, application/show with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/alexkern/Desktop/app_academy/aa_classwork/W12D3/bench_BnB/app/views":
+  app/controllers/api/sessions_controller.rb:8:in `create'
+
+Started POST "/api/session?user[username]=alexalex&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:51:58 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"alexalex", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "alexalex"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:14
+Completed 200 OK in 719ms (Views: 0.6ms | ActiveRecord: 3.6ms)
+
+
+Started DELETE "/api/session?user[username]=alexalex&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:52:10 -0700
+Processing by Api::SessionsController#destroy as JSON
+  Parameters: {"user"=>{"username"=>"alexalex", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pGLBLYR6VXu88QQYnyOmYA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "alexalex"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "FDH0Xb6m19rfl8wXbF8bHQ"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Update (6.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "FDH0Xb6m19rfl8wXbF8bHQ"], ["updated_at", "2022-07-07 16:52:10.992232"], ["id", 6]]
+  ↳ app/models/user.rb:30
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:30
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 10.5ms)
+
+
+
+ActionView::MissingTemplate - Missing template api/sessions/destroy, application/destroy with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/alexkern/Desktop/app_academy/aa_classwork/W12D3/bench_BnB/app/views":
+  app/controllers/api/sessions_controller.rb:14:in `destroy'
+
+Started DELETE "/api/session?user[username]=alexalex&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:52:25 -0700
+Processing by Api::SessionsController#destroy as JSON
+  Parameters: {"user"=>{"username"=>"alexalex", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pGLBLYR6VXu88QQYnyOmYA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 3.6ms)
+
+
+
+NoMethodError - undefined method `reset_session_token' for nil:NilClass:
+  app/controllers/application_controller.rb:26:in `logout!'
+  app/controllers/api/sessions_controller.rb:13:in `destroy'
+
+Started POST "/api/session?user[username]=alexalex&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:52:34 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"alexalex", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "alexalex"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:14
+Completed 200 OK in 720ms (Views: 0.2ms | ActiveRecord: 6.7ms)
+
+
+Started DELETE "/api/session?user[username]=alexalex&user[password]=[FILTERED]" for ::1 at 2022-07-07 09:52:40 -0700
+Processing by Api::SessionsController#destroy as JSON
+  Parameters: {"user"=>{"username"=>"alexalex", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FDH0Xb6m19rfl8wXbF8bHQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "alexalex"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "29I676ESlYv74pt3oPK5mQ"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Update (2.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "29I676ESlYv74pt3oPK5mQ"], ["updated_at", "2022-07-07 16:52:40.017747"], ["id", 6]]
+  ↳ app/models/user.rb:30
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:30
+Completed 200 OK in 19ms (Views: 0.1ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/" for ::1 at 2022-07-07 10:42:34 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 860ms (Views: 858.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-07-07 10:46:25 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 27ms (Views: 26.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-07-07 10:47:06 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 290ms (Views: 289.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-07-07 10:52:44 -0700
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexkern/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 628ms (Views: 625.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-07-07 10:53:42 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexkern/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 152ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/alexkern/Desktop/app_academy/aa_classwork/W12D3/bench_BnB/app/assets/config
+  /Users/alexkern/Desktop/app_academy/aa_classwork/W12D3/bench_BnB/app/assets/images
+  /Users/alexkern/Desktop/app_academy/aa_classwork/W12D3/bench_BnB/app/assets/javascripts
+  /Users/alexkern/Desktop/app_academy/aa_classwork/W12D3/bench_BnB/app/assets/stylesheets
+  /Users/alexkern/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/alexkern/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.8/lib/assets/compiled
+  /Users/alexkern/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.8/app/assets/javascripts
+  /Users/alexkern/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.8/lib/assets/compiled
+  /Users/alexkern/Desktop/app_academy/aa_classwork/W12D3/bench_BnB/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___4054556780513719347_2259072400'
+
+Started GET "/" for ::1 at 2022-07-07 10:53:46 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/alexkern/Desktop/app_academy/aa_classwork/W12D3/bench_BnB/app/assets/config
+  /Users/alexkern/Desktop/app_academy/aa_classwork/W12D3/bench_BnB/app/assets/images
+  /Users/alexkern/Desktop/app_academy/aa_classwork/W12D3/bench_BnB/app/assets/javascripts
+  /Users/alexkern/Desktop/app_academy/aa_classwork/W12D3/bench_BnB/app/assets/stylesheets
+  /Users/alexkern/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/alexkern/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.8/lib/assets/compiled
+  /Users/alexkern/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.8/app/assets/javascripts
+  /Users/alexkern/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.8/lib/assets/compiled
+  /Users/alexkern/Desktop/app_academy/aa_classwork/W12D3/bench_BnB/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___4054556780513719347_2179208700'
+
+Started POST "/__better_errors/b60adde3e553f4c6/variables" for ::1 at 2022-07-07 10:53:46 -0700
+Started GET "/" for ::1 at 2022-07-07 10:55:38 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexkern/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 885ms (Views: 884.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users/" for ::1 at 2022-07-07 10:55:47 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"alex", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (5.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "alex"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "okJ_O-DxidWCuPRck_urIA"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "session_token", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "alex"], ["session_token", "okJ_O-DxidWCuPRck_urIA"], ["password_digest", "$2a$12$lWk57.Kf7lLPkFfos5bCTO6proK5Izd5BCRBF2gqzsAiqFj2AGkPm"], ["created_at", "2022-07-07 17:55:48.130258"], ["updated_at", "2022-07-07 17:55:48.130258"]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (1.1ms)
+Completed 200 OK in 761ms (Views: 4.8ms | ActiveRecord: 27.6ms)
+
+
+Started POST "/api/session/" for ::1 at 2022-07-07 10:57:42 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"alex", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "alex"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:14
+Completed 200 OK in 746ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/api/session/" for ::1 at 2022-07-07 10:58:06 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "okJ_O-DxidWCuPRck_urIA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "alex"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "qrQppAZ2gG22t_83t3qPIQ"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Update (1.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "qrQppAZ2gG22t_83t3qPIQ"], ["updated_at", "2022-07-07 17:58:06.833606"], ["id", 7]]
+  ↳ app/models/user.rb:30
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:30
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 5.3ms)
+
+

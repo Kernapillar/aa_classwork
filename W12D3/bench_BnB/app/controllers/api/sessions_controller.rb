@@ -5,12 +5,12 @@ class Api::SessionsController < ApplicationController
             render json: ['Invalid  credentials'], status: 401
         else
             login!(@user)
-            render :show
+            render json: ["logged in"]
         end  
     end
 
     def destroy
         logout!
-        render {}
+        render json: {}
     end
 end

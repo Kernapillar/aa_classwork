@@ -6,12 +6,12 @@ class User < ApplicationRecord
 
     validates :username, :session_token, :password_digest, presence: true
     validates :username, :session_token, uniqueness: true
-    validates :password, lengh: {minimum: 6}, allow_nil: true
+    validates :password, length: {minimum: 6}, allow_nil: true
 
 
     # SPIRE
     def self.find_by_credentials(username, password)
-        user = User.find_by(username)
+        user = User.find_by(username: username)
         return nil unless user
         user.is_password?(password) ? user : nil
     end
